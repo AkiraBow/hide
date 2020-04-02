@@ -1,0 +1,17 @@
+.idea/
+build/
+out/
+
+# Gradle
+.gradle/
+**/.gradle/
+
+# VIM
+*.swp
+*.swo
+*~
+tags
+.tags
+
+.idea/
+*.iml
