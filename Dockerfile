@@ -11,10 +11,10 @@ COPY --from=build /hide/build/libs/hide-0.0.1-SNAPSHOT.jar /app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
 
 # build (-t docker image name  . use dockerfile in current folder)
-# docker build -t arkirabow/bayonetta .
+# docker build -t arkirabow/hide .
 
 # run (-d: detached mode -p portforwarding)
-# docker run -p 8081:8081 -d -t arkirabow/bayonetta
+# docker run -p 8081:8081 -d -t arkirabow/hide
 
 # push to docker hub (lastest is the tag)
 # docker push arkirabow/bayonetta:latest
