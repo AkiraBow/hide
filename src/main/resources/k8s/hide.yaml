@@ -9,6 +9,8 @@ metadata:
 spec:
   # replica definition
   replicas: 1
+  # how many old replicas to reserve for rollback, default 10
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       # the replica will run on pods with label "web"
