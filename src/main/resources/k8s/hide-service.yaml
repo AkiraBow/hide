@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  # service name
+  name: hide-web
+  namespace: default
+spec:
+  ports:
+    - port: 8081
+      targetPort: 8081
+      # exposed port
+      nodePort: 30000
+      name: http
+      protocol: TCP
+  selector:
+    app: web
+  # to let k8s know that this service is exposed to the outside
+  type: NodePort

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hide-deployment
+  namespace: default
+  labels:
+    app: web
+
+spec:
+  # replica definition
+  replicas: 1
+  selector:
+    matchLabels:
+      # the replica will run on pods with label "web"
+      app: web
+  # pods definition
+  template:
+    metadata:
+      labels:
+        # will create 1 pod labeled "web"
+        app: web
+    spec:
+      #container definition, 1 container per pod
+      containers:
+        # service name
+        - name: hide-web
+          image: arkirabow/hide:latest
+          # the image will be pulled once the pod is deleted, k8s will start a new pod after deletion
+          imagePullPolicy: Always
+      nodeSelector:
+        # node/machine to deploy on
+        # kubectl label nodes ip-172-31-34-29 servicetype=web
+        servicetype: web
+      dnsConfig:
+        # kube-dns
+        nameservers:
+          - 10.96.0.10
