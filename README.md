@@ -75,3 +75,6 @@ refer to resources/k8s/hide-service.yaml
 http://{node public ip}:30000/allbooks
 ## apply changes to k8s
 >kubectl apply -f ./{your config file}.yaml
+## autoscaler
+create non-expiry token
+>kubeadm token create --ttl 0
